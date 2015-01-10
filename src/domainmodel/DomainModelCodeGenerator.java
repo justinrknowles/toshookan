@@ -5,7 +5,7 @@ package domainmodel;
  * <p>
  * Created: Jan 20, 2007
  * 
- * @author <a href="mailto:justin.r.knowles@lowes.com">Justin R. Knowles</a>
+ * @author <a href="mailto:justinrknowles@gmail.com">Justin R. Knowles</a>
  */
 public interface DomainModelCodeGenerator {    
     
