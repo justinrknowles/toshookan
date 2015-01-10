@@ -1,0 +1,111 @@
+package ${classPackage};
+
+import java.io.Serializable;
+#foreach( $import in ${classImports} )
+import ${import};
+#end
+
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
+/**
+#foreach( $line in ${classDescription} )
+ * ${line}
+#end
+ * <p>
+ * Created: ${classCreateDate}
+ *
+ * @author $Author: $
+ */
+#if($classSuperClass)
+public class ${className} extends ${classSuperClass} implements Serializable {
+#else
+public class ${className} implements Serializable {
+#end
+
+	private static final long serialVersionUID = 1L;
+	
+#foreach( $value in ${entityValues} )				
+	private ${value.className} ${value.instanceName};
+#end	
+
+	/**
+     * Indicates whether some other object is "equal to" this one.
+     * <p>
+     * full description
+     * 
+     * @param obj
+     *            the reference object with which to compare
+     * @return true if this objects properties are equal to the obj argument
+     *         properties; false otherwise.
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
+    public boolean equals(Object obj) {
+		return EqualsBuilder.reflectionEquals(this, obj, true);
+    }
+    
+    /**
+     * Returns a hash code value for the object.
+     * <p>
+     * full description
+     * 
+     * @return a hash code value for this object.
+     * @see java.lang.Object#hashCode()
+     */
+    public int hashCode() {
+		return HashCodeBuilder.reflectionHashCode(this, true);
+    }
+   
+	/**
+	 * Returns a string that "textually represents" this object.
+	 * <p>
+	 * Specifically a string is returned that contains all of the instance 
+	 * variable names and values.  The value is derived using the instance 
+	 * variable's toString() method.
+	 *
+	 * @return a string representation of the object.
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
+	}
+#foreach( $value in ${entityValues} )
+
+	/**
+	 * Getter method for ${value.instanceName}.
+	 * <p>
+#foreach( $line in $value.description)
+ 	 * ${line}
+#end
+	 *
+	 * @return The value of ${value.instanceName}.
+	 */
+	public ${value.className} ${value.getter}() {
+		return ${value.instanceName};
+	}
+
+	/**
+	 * Setter method for ${value.instanceName}.
+	 * <p>
+#foreach( $line in $value.description)
+ 	 * ${line}
+#end
+	 *
+	 * @param ${value.instanceName} The ${value.instanceName} to set.
+	 */
+	public void ${value.setter}(${value.className} ${value.instanceName}) {
+		this.${value.instanceName} = ${value.instanceName};
+	}	
+#end	
+}
+
+/*
+ * Copyright 2014 Capital One Financial Corporation All Rights Reserved.
+ * 
+ * This software contains valuable trade secrets and proprietary information of Capital One and is protected by law. It
+ * may not be copied or distributed in any form or medium, disclosed to third parties, reverse engineered or used in any
+ * manner without prior written authorization from Capital One.
+ */

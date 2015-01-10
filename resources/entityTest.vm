@@ -1,0 +1,94 @@
+package ${classPackage};
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Test;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
+#foreach( $import in ${classImports} )
+import ${import};
+#end
+
+/**
+ * Test case for <code>{@link  ${className}}</code>.
+ * <p>
+ * Created: ${classCreateDate}
+ *
+ * @author $Author: $
+ */
+public class ${className}Test {
+
+	/**
+	 * Test for <code>{@link ${className}#toString()}</code>.
+	 */
+	@Test
+	public final void testToString() {
+		${className} fixture = new ${className}();
+#foreach( $value in ${entityValues} )
+		fixture.${value.setter}(${value.testValue});
+#end
+		String expected = ToStringBuilder.reflectionToString(fixture, ToStringStyle.SHORT_PREFIX_STYLE);
+		assertEquals(expected, fixture.toString());
+	}
+
+	/**
+	 * Test for <code>{@link CardAccount#equals()}</code>.
+	 */
+	@Test
+	public final void testHashCode() {
+		${className} fixture = new ${className}();
+#foreach( $value in ${entityValues} )
+		fixture.${value.setter}(${value.testValue});
+#end
+		
+		${className} ${entityInstanceName} = new ${className}();
+#foreach( $value in ${entityValues} )
+		${entityInstanceName}.${value.setter}(${value.testValue});
+#end
+		
+		assertTrue(fixture.equals(${entityInstanceName}));
+	}
+	
+	/**
+	 * Test for <code>{@link CardAccount#hashCode()}</code>.
+	 */
+	@Test
+	public final void testEquals() {
+		${className} fixture = new ${className}();
+#foreach( $value in ${entityValues} )
+		fixture.${value.setter}(${value.testValue});
+#end		
+		
+		${className} ${entityInstanceName} = new ${className}();
+#foreach( $value in ${entityValues} )
+		${entityInstanceName}.${value.setter}(${value.testValue});
+#end
+		
+		assertEquals(${entityInstanceName}.hashCode(), fixture.hashCode());
+	}
+
+#foreach( $value in ${entityValues} )
+	/**
+	 * Test for <code>{@link ${className}#${value.setter}()}</code> and
+	 * <code>{@link ${className}#${value.getter}()}</code>.
+	 */
+	@Test
+	public final void verifyContract${value.name}() {
+		${className} fixture = new ${className}();
+		${value.className} expected = ${value.testValue};
+		fixture.${value.setter}(expected);
+		assertEquals(expected, fixture.${value.getter}());
+	}
+	
+#end
+}
+
+/*
+ * Copyright 2014 Capital One Financial Corporation All Rights Reserved.
+ * 
+ * This software contains valuable trade secrets and proprietary information of Capital One and is protected by law. It
+ * may not be copied or distributed in any form or medium, disclosed to third parties, reverse engineered or used in any
+ * manner without prior written authorization from Capital One.
+ */

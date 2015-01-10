@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domainModel>
+	<entities>
+
+		<entity name="User" package="com.toshookan">
+			<entity-description>
+				a user
+			</entity-description>
+			<values>
+				<value name="id" class="String">
+					<value-description>
+						The unique identifier of the user.
+					</value-description>
+				</value>
+				<value name="name" class="String">
+					<value-description>
+						The display name of the user.
+					</value-description>
+				</value>
+			</values>
+		</entity>
+
+		
+	</entities>
+</domainModel>

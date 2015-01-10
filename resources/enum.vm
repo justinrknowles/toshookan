@@ -1,0 +1,46 @@
+package ${classPackage};
+
+/**
+#foreach( $line in ${classDescription} )
+ * ${line}
+#end
+ * <p>
+ * Created: ${classCreateDate}
+ *
+ * @author $Author: $
+ */
+public enum ${className} {
+#foreach( $value in ${entityValues} )
+
+	/**
+#foreach( $line in $value.description)
+ 	 * ${line}
+#end
+	 */ 
+	${value.instanceName}#if($entityValues.size() == $velocityCount);#else,#end
+	
+#end
+
+    /**
+     * Gets the ${className} value of the given string, stripping whitespace and ignoring case.
+     * 
+     * @param value
+     * @return ${className}
+     */
+    public static ${className} valueOfIgnoreCase(String value) {
+        if (value == null) {
+            throw new IllegalArgumentException();
+        }
+        else {
+            return ${className}.valueOf(value.trim().toUpperCase());
+        }
+    }
+}
+
+/*
+ * Copyright 2014 Capital One Financial Corporation All Rights Reserved.
+ * 
+ * This software contains valuable trade secrets and proprietary information of Capital One and is protected by law. It
+ * may not be copied or distributed in any form or medium, disclosed to third parties, reverse engineered or used in any
+ * manner without prior written authorization from Capital One.
+ */
