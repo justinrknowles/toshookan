@@ -33,7 +33,7 @@ import org.xml.sax.SAXException;
  * database as it parses the document and write a parsing report to a file on
  * disk.
  * 
- * @author <a href="mailto:justin.r.knowles@lowes.com">Justin R. Knowles </a>
+ * @author <a href="mailto:justinrknowles@gmail.com">Justin R. Knowles </a>
  */
 public abstract class DefaultHandler extends org.xml.sax.helpers.DefaultHandler {
 
