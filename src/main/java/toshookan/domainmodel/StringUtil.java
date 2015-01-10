@@ -1,4 +1,4 @@
-package domainmodel;
+package toshookan.domainmodel;
 
 /**
  * Utility class which contains static methods that should be part of the String

@@ -1,4 +1,4 @@
-package domainmodel;
+package toshookan.domainmodel;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -118,8 +118,8 @@ public class VelocityDomainModelCodeGenerator implements
 		String domainModelXmlFile;
 		String templateRoot;
 
-		domainModelXmlFile = "resources/domainModel.xml";
-		templateRoot = "resources/";
+		domainModelXmlFile = "src/main/resources/domainModel.xml";
+		templateRoot = "src/main/resources/";
 
 		try {
 			handler = new DomainModelHandler();

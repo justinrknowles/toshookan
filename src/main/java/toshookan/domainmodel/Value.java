@@ -1,4 +1,4 @@
-package domainmodel;
+package toshookan.domainmodel;
 
 /**
  * A property of a persistant object.

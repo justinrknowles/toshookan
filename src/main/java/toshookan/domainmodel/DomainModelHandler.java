@@ -1,4 +1,4 @@
-package domainmodel;
+package toshookan.domainmodel;
 
 import java.util.ArrayList;
 import java.util.logging.Logger;

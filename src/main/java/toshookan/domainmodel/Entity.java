@@ -1,4 +1,4 @@
-package domainmodel;
+package toshookan.domainmodel;
 
 import java.util.Iterator;
 import java.util.List;

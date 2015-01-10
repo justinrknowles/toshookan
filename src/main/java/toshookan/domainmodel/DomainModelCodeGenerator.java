@@ -1,4 +1,4 @@
-package domainmodel;
+package toshookan.domainmodel;
 
 /**
  * Generates code based off a model.
