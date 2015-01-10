@@ -1,2 +1,2 @@
 # toshookan
-Generates a Java domain Mmdel with basic unit tests from a XML descriptor file
+Generates a Java domain model with basic unit tests from a XML descriptor file
