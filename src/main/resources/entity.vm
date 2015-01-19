@@ -17,7 +17,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  * <p>
  * Created: ${classCreateDate}
  *
- * @author $Author: $
+ * @author Justin R. Knowles
  */
 #if($classSuperClass)
 public class ${className} extends ${classSuperClass} implements Serializable {
@@ -101,3 +101,7 @@ public class ${className} implements Serializable {
 	}	
 #end	
 }
+
+/*
+ * Copyright 2015
+ */

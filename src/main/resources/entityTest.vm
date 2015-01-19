@@ -16,7 +16,7 @@ import ${import};
  * <p>
  * Created: ${classCreateDate}
  *
- * @author $Author: $
+ * @author Justin R. Knowles
  */
 public class ${className}Test {
 

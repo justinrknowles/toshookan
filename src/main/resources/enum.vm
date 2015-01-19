@@ -7,7 +7,7 @@ package ${classPackage};
  * <p>
  * Created: ${classCreateDate}
  *
- * @author $Author: $
+ * @author Justin R. Knowles
  */
 public enum ${className} {
 #foreach( $value in ${entityValues} )
